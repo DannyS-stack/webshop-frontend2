@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { AddItemToCart } from "../store/cart/actions";
 import { fetchProducts } from "../store/products/actions";
 import { selectProducts, selectState } from "../store/products/selectors";
 
@@ -12,7 +13,18 @@ export default function ProductPage() {
 
   const jsxResult = loading.products
     ? "Loading"
-    : products.products.map((res) => <li key={res.id}>{res.name}</li>);
+    : products.products.map((res) => (
+        <div key={res.id}>
+          <li>
+            {res.name}
+            <button onClick={() => dispatch(AddItemToCart(res))}>
+              {" "}
+              Add to cart{" "}
+            </button>
+            <button> Details </button>
+          </li>
+        </div>
+      ));
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -22,7 +34,7 @@ export default function ProductPage() {
   return (
     <div>
       <h1>Products page</h1>
-      <ul>{jsxResult}</ul>
+      <ul>{jsxResult} </ul>
     </div>
   );
 }
