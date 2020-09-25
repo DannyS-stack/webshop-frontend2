@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 // import feedSliceReducer from "./feed/reducer";
 // import authReducer from "./auth/reducer";
-// import postPageReducer from "./postPageMe/reducer";
+import productReducer from "./products/reducer";
 
 const reducer = combineReducers({
-  // feed: feedSliceReducer,
+  products: productReducer,
   // auth: authReducer,
   // postPage: postPageReducer,
   // etc.
