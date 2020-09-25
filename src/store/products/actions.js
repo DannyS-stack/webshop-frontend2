@@ -20,8 +20,8 @@ export function fetchProducts() {
     dispatch(startFetchingProducts());
 
     const data = await axios.get(`${API_URL}`);
-    console.log(data);
 
     dispatch(productsFullyFetched(data));
   };
 }
+fetchProducts();

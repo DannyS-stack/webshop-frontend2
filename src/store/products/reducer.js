@@ -5,8 +5,16 @@ const initialState = {
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
+    case "startFetchingProducts":
+      return {
+        loading: true,
+        products: [],
+      };
     case "productsFullyFetched":
-      return { ...state, ...payload };
+      return {
+        loading: false,
+        products: payload,
+      };
 
     default:
       return state;
