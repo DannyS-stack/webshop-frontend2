@@ -7,9 +7,7 @@ import { selectProducts, selectState } from "../store/products/selectors";
 export default function ProductPage() {
   const products = useSelector(selectProducts);
   const loading = useSelector(selectState);
-
-  console.log("products", products);
-  console.log("loading", loading.products);
+  const dispatch = useDispatch();
 
   const jsxResult = loading.products
     ? "Loading"
@@ -26,7 +24,6 @@ export default function ProductPage() {
         </div>
       ));
 
-  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);

@@ -24,4 +24,3 @@ export function fetchProducts() {
     dispatch(productsFullyFetched(data));
   };
 }
-fetchProducts();
