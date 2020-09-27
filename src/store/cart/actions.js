@@ -5,8 +5,17 @@ export function productIdAdded(id) {
   };
 }
 
-//here we need an action creator so that the productcard can use it to send am action to the state
+export function productIdRemoved(id) {
+  return {
+    type: "REMOVED_FROM_CART",
+    payload: id,
+  };
+}
 
 export const AddItemToCart = (id) => (dispatch, getState) => {
   dispatch(productIdAdded(id));
+};
+
+export const removetemFromCart = (id) => (dispatch, getState) => {
+  dispatch(productIdRemoved(id));
 };

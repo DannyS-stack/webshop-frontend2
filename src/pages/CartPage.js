@@ -1,13 +1,15 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { numberOfcartItems, showCartItemIds } from "../store/cart/selectors";
 import ProductCard from "../components/ProductCard";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 
 import { allProducts } from "../store/products/selectors";
+import { removetemFromCart } from "../store/cart/actions";
 
 export default function CartPage() {
+  const dispatch = useDispatch();
   const itemsInCart = useSelector(showCartItemIds);
   const testing = useSelector(numberOfcartItems);
   return (
@@ -36,12 +38,20 @@ export default function CartPage() {
                 >
                   <Button
                     variant="contained"
-                    color="secondary"
+                    color="primary"
                     style={{ margin: 10 }}
                   >
-                    See details{" "}
+                    See details
                   </Button>
                 </Link>
+                <Button
+                  onClick={() => dispatch(removetemFromCart(item.id))}
+                  variant="contained"
+                  color="secondary"
+                  style={{ margin: 10 }}
+                >
+                  remove from cart{" "}
+                </Button>
               </div>
             );
           })
