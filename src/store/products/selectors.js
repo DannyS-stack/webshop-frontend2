@@ -1,8 +1,7 @@
-export function selectProducts(reduxState) {
-  return {
-    products: reduxState.products.products.data,
-  };
-}
+export const allProducts = (state) =>
+  state.products.categories.flatMap((c) => c.products);
+
+export const allCategories = (reduxState) => reduxState.products.categories;
 
 export function selectState(reduxState) {
   return {

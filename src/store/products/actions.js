@@ -2,12 +2,6 @@ import axios from "axios";
 
 const API_URL = `http://localhost:4000/products`;
 
-export function startFetchingProducts() {
-  return {
-    type: "startFetchingProducts",
-  };
-}
-
 export function productsFullyFetched(data) {
   return {
     type: "productsFullyFetched",
@@ -17,10 +11,9 @@ export function productsFullyFetched(data) {
 
 export function fetchProducts() {
   return async function thunk(dispatch, getState) {
-    dispatch(startFetchingProducts());
-
     const data = await axios.get(`${API_URL}`);
+    console.log(data.data);
 
-    dispatch(productsFullyFetched(data));
+    dispatch(productsFullyFetched(data.data));
   };
 }

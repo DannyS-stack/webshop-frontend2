@@ -1,12 +1,12 @@
-export function AddItemToCart(data) {
-  return async function thunk(dispatch, getState) {
-    dispatch(productsFullyFetched(data));
+export function productIdAdded(id) {
+  return {
+    type: "ADDED_TO_CART",
+    payload: id,
   };
 }
 
-export function productsFullyFetched(data) {
-  return {
-    type: "ADDED_TO_CART",
-    payload: data,
-  };
-}
+//here we need an action creator so that the productcard can use it to send am action to the state
+
+export const AddItemToCart = (id) => (dispatch, getState) => {
+  dispatch(productIdAdded(id));
+};

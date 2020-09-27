@@ -1,6 +1,7 @@
 const initialState = {
   loading: true,
-  products: [],
+  categories: [],
+  cart: [],
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -8,12 +9,13 @@ export default (state = initialState, { type, payload }) => {
     case "startFetchingProducts":
       return {
         loading: true,
-        products: [],
+        categories: [],
       };
     case "productsFullyFetched":
       return {
         loading: false,
-        products: payload,
+        categories: payload.categories,
+        cart: [],
       };
 
     default:

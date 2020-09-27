@@ -1,13 +1,13 @@
 const initialState = {
-  products: [],
+  productsInCart: [],
 };
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
     case "ADDED_TO_CART":
-      return {
-        products: [...state.products, payload],
-      };
+      console.log(payload);
+
+      return { ...state, productsInCart: [...state.productsInCart, payload] };
 
     default:
       return state;

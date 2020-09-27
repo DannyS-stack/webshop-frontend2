@@ -1,18 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import "./NavStyles.css";
 
 export default function NavBar() {
   return (
-    <div>
-      <ul>
+    <div className="topnav">
+      <ul className="topnav">
         <li>
-          <Link to="/">Home Page</Link>
+          <NavLink style={{ color: "white" }} to="/products">
+            Products
+          </NavLink>
         </li>
         <li>
-          <Link to="/products">Products</Link>
-        </li>
-        <li>
-          <Link to="/cart">Cart</Link>
+          <NavLink style={{ color: "white" }} to="/cart">
+            Cart
+          </NavLink>
         </li>
       </ul>
     </div>
